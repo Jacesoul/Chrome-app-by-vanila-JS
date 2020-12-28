@@ -1,13 +1,20 @@
 const toDoForm=document.querySelector(".js-toDoForm");
 const toDoInput=toDoForm.querySelector('input');
-const toDoList=document.getElementsByClassName('js-toDoList');
+const toDoList=document.querySelector(".js-toDoList");
 
 
 const todos_ls='toDos';
 
 
 function paintToDo(text){
-    console.log(text);
+    const li=document.createElement("li");
+    const delBtn=document.createElement("button");
+    delBtn.innerHTML="❌";
+    const span=document.createElement("span");
+    span.innerText=text
+    toDoList.appendChild(li);
+    li.appendChild(delBtn);
+    li.appendChild(span);
 }
 
 
@@ -16,7 +23,7 @@ function handleSubmit(event){
     event.preventDefault();
     const currentValue=toDoInput.value;
     paintToDo(currentValue);
-    //toDoInput.value="";
+    toDoInput.value="";
 }
 
 
